@@ -64,8 +64,17 @@ module.exports = {
     });
   },
 
-  enter(req, res) {
+  async enter(req, res) {
+    const db = await Database();
     const roomId = req.body.roomId;
+
+    const roomIdExist = await db.all(
+      `SELECT * FROM rooms WHERE id = ${roomId}`
+    );
+
+    if (roomIdExist.length == 0) {
+      res.redirect("/");
+    }
 
     res.redirect(`/room/${roomId}`);
   },
