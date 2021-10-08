@@ -44,11 +44,21 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+.input-enter p {
+  font-size: 13px;
+  color: tomato;
+}
+
+.input-enter,
+button,
+.button {
+  margin-bottom: 1.8rem;
+}
+
 input,
 button,
 .button {
   width: 100%;
-  margin-bottom: 1.8rem;
 }
 
 /* ---- Separator Line ---- */

@@ -73,7 +73,7 @@ module.exports = {
     );
 
     if (roomIdExist.length == 0) {
-      res.redirect("/");
+      return res.render("index", { page: "enter-room", noRoom: true });
     }
 
     res.redirect(`/room/${roomId}`);

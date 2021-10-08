@@ -1,5 +1,4 @@
 import Modal from "./modal.js";
-
 const modal = Modal();
 // a constante modal (e consequentemente, este módulo, main.js) passa a ter todas as propriedades e funcionalidades que a função Modal retorna
 

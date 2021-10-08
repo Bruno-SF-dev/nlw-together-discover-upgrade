@@ -1,13 +1,18 @@
 <section>
   <h2>Entre como participante</h2>
-  <form action="/enterRoom" method="POST">
+  <form action="/" method="POST">
     <label class="sr-only" for="room-id">Código da sala</label>
-    <input
-      type="number"
-      name="roomId"
-      id="room-id"
-      placeholder="Código da sala"
-    />
+    <div class="input-enter">
+      <input
+        type="number"
+        name="roomId"
+        id="room-id"
+        placeholder="Código da sala"
+      />
+      <% if (noRoom == true) { %>
+      <p>A sala pesquisada não existe.</p>
+      <% } %>
+    </div>
     <button type="submit">
       <img src="/images/enter-room.svg" alt="Entrar na sala" />
       Entrar na sala
