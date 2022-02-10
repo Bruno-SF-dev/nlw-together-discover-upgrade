@@ -9,8 +9,8 @@
         id="room-id"
         placeholder="Código da sala"
       />
-      <% if (noRoom == true) { %>
-      <p>A sala pesquisada não existe.</p>
+      <% if (error) { %>
+      <p><%= error %></p>
       <% } %>
     </div>
     <button type="submit">

@@ -6,10 +6,10 @@ const RoomController = require("./controllers/RoomController");
 const route = express.Router();
 
 route.get("/", (req, res) =>
-  res.render("index", { page: "enter-room", noRoom: false })
+  res.render("index", { page: "enter-room", error: req.flash("error") }),
 ); // { page: "enter-room" }: passando uma variável "page"
 route.get("/create-pass", (req, res) =>
-  res.render("index", { page: "create-pass" })
+  res.render("index", { page: "create-pass" }),
 );
 
 route.post("/create-room", RoomController.create);

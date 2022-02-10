@@ -45,11 +45,11 @@ module.exports = {
     let isNoQuestions = false;
 
     const questions = await db.all(
-      `SELECT * FROM questions WHERE room = ${roomId} and read = 0`
+      `SELECT * FROM questions WHERE room = ${roomId} and read = 0`,
     );
 
     const questionsRead = await db.all(
-      `SELECT * FROM questions WHERE room = ${roomId} and read = 1`
+      `SELECT * FROM questions WHERE room = ${roomId} and read = 1`,
     );
 
     if (questions.length == 0 && questionsRead == 0) {
@@ -69,11 +69,13 @@ module.exports = {
     const roomId = req.body.roomId;
 
     const roomIdExist = await db.all(
-      `SELECT * FROM rooms WHERE id = ${roomId}`
+      `SELECT * FROM rooms WHERE id = ${roomId}`,
     );
 
     if (roomIdExist.length == 0) {
-      return res.render("index", { page: "enter-room", noRoom: true });
+      req.flash("error", "A sala pesquisada não existe.");
+      res.redirect("/");
+      return;
     }
 
     res.redirect(`/room/${roomId}`);
