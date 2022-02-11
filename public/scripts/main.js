@@ -1,3 +1,4 @@
+import "./copyRoomId.js";
 import Modal from "./modal.js";
 const modal = Modal();
 // a constante modal (e consequentemente, este módulo, main.js) passa a ter todas as propriedades e funcionalidades que a função Modal retorna
@@ -7,7 +8,7 @@ const modalTitle = document.querySelector(".modal h2");
 const modalDescription = document.querySelector(".modal p");
 const modalForm = document.querySelector(".modal form");
 const modalConfirmButton = document.querySelector(
-  ".modal .buttons button.confirm"
+  ".modal .buttons button.confirm",
 );
 
 function handleClick(event, check = true) {
