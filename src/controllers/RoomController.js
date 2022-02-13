@@ -71,6 +71,7 @@ module.exports = {
       questions: questions,
       questionsRead: questionsRead,
       isNoQuestions: isNoQuestions,
+      incorrectPass: req.flash("incorrectPass"),
     });
   },
 
