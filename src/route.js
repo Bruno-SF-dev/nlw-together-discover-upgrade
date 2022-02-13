@@ -4,21 +4,30 @@ const RoomController = require("./controllers/RoomController");
 
 const route = express.Router();
 
-route.get("/", (req, res) =>
-  res.render("index", { page: "enter-room", error: req.flash("error") }),
-);
+// enter-room
+route.get("/", (req, res) => res.render("index", { page: "enter-room" }));
+route.post("/", RoomController.enter);
+
+// create-room
 route.get("/create-pass", (req, res) =>
   res.render("index", { page: "create-pass" }),
 );
-
 route.post("/create-room", RoomController.create);
-route.get("/room/:roomId", RoomController.open);
-route.post("/", RoomController.enter);
 
+// room
+route.get("/room/:roomId", RoomController.open);
+
+// questions
 route.post("/question/:roomId/:questionId/:action", QuestionController.index);
 route.post("/question/create/:roomId", QuestionController.create);
 
+// 404
 route.get("*", (req, res) => {
+  res.status(404);
+  res.render("notFound");
+});
+
+route.post("*", (req, res) => {
   res.status(404);
   res.render("notFound");
 });
