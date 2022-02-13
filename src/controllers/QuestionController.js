@@ -30,7 +30,7 @@ module.exports = {
     const question = req.body.question;
     const roomId = req.params.roomId;
 
-    if (!question) {
+    if (!question.trim()) {
       req.flash("error", "Digite sua pergunta.");
       res.redirect(`/room/${roomId}`);
       return;
