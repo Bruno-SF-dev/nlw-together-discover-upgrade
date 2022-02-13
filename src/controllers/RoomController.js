@@ -7,6 +7,12 @@ module.exports = {
     let roomId;
     let isRoom = true;
 
+    if (!pass) {
+      req.flash("error", "Insira uma senha.");
+      res.redirect("/create-pass");
+      return;
+    }
+
     while (isRoom) {
       /*--- Gerar código da sala ---*/
       for (var i = 0; i < 6; i++) {
