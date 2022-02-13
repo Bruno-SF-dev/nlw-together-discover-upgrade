@@ -44,6 +44,16 @@ module.exports = {
     const roomId = req.params.roomId;
     let isNoQuestions = false;
 
+    const roomIdExist = await db.all(
+      `SELECT * FROM rooms WHERE id = ${roomId}`,
+    );
+
+    if (roomIdExist.length == 0) {
+      req.flash("error", "A sala pesquisada não existe.");
+      res.redirect("/");
+      return;
+    }
+
     const questions = await db.all(
       `SELECT * FROM questions WHERE room = ${roomId} and read = 0`,
     );
