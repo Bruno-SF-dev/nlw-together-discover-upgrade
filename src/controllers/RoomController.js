@@ -50,6 +50,12 @@ module.exports = {
     const roomId = req.params.roomId;
     let isNoQuestions = false;
 
+    if (!Number(roomId)) {
+      req.flash("error", "A sala pesquisada não existe.");
+      res.redirect("/");
+      return;
+    }
+
     const roomIdExist = await db.all(
       `SELECT * FROM rooms WHERE id = ${roomId}`,
     );
@@ -78,6 +84,7 @@ module.exports = {
       questionsRead: questionsRead,
       isNoQuestions: isNoQuestions,
       incorrectPass: req.flash("incorrectPass"),
+      error: req.flash("error"),
     });
   },
 
