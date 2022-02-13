@@ -19,5 +19,9 @@ route.post("/", RoomController.enter);
 route.post("/question/:roomId/:questionId/:action", QuestionController.index);
 route.post("/question/create/:roomId", QuestionController.create);
 
-// implicitamente, o (req, res) já está sendo passado para os controller chamado
+route.get("*", (req, res) => {
+  res.status(404);
+  res.render("notFound");
+});
+
 module.exports = route;

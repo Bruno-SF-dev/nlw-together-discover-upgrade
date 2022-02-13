@@ -1,0 +1,36 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content header {
+  height: 80px;
+}
+
+.content > div {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.content > div h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 36px;
+  color: var(--black);
+}
+
+.content > div a {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.content > div a:hover {
+  filter: brightness(1.2);
+}
