@@ -16,9 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
     <script src="/scripts/main.js" defer type="module"></script>
+    <% if(incorrectPass.length > 0) { %>
+      <script src="/scripts/incorrectPass.js" defer type="module"></script>
+    <% } %>
   </head>
   <body>
     <div id="room" class="content">
+    
       <header>
         <a href="/">
           <img src="/images/logo.svg" alt="Rocket.q Logo">

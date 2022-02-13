@@ -18,10 +18,10 @@ module.exports = {
         await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`);
       }
     } else {
-      res.render("passwordIncorrect", { roomId: roomId });
+      req.flash("incorrectPass", "incorrectPass");
     }
 
-    res.redirect(`/room/${roomId}`);
+    return res.redirect(`/room/${roomId}`);
   },
 
   async create(req, res) {

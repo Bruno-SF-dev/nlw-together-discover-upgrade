@@ -26,5 +26,5 @@
 }
 
 .toast.error {
-  background-color: firebrick;
+  background-color: var(--red);
 }
