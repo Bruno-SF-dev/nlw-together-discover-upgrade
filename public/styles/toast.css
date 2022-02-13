@@ -1,7 +1,6 @@
 .toast {
   height: 40px;
   width: 240px;
-  background-color: var(--blue);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -20,11 +19,15 @@
   transition: all 0.2s ease;
 }
 
-.toast.enter {
-  top: 20px;
-  opacity: 1;
+.toast.success {
+  background-color: var(--blue);
 }
 
 .toast.error {
   background-color: var(--red);
+}
+
+.toast.enter {
+  top: 20px;
+  opacity: 1;
 }

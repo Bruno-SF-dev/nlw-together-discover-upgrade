@@ -1,37 +1,50 @@
-const toastComponent = document.createElement("div");
+export class Toast {
+  constructor(message, status) {
+    {
+      this.message = message;
+      this.status = status;
+      this.toastComponent = document.createElement("div");
+    }
+  }
 
-const enterToast = () => {
-  toastComponent.classList.add("enter");
-};
+  showToast = async () => {
+    await this.addToast();
+    await this.removeToast();
+  };
 
-const outToast = () => {
-  toastComponent.classList.remove("enter");
-};
+  enterToast = () => {
+    this.toastComponent.classList.add("enter");
+  };
 
-export const addToast = (message, error) => {
-  return new Promise((resolve, reject) => {
-    const classes = error ? "toast error" : "toast";
+  outToast = () => {
+    this.toastComponent.classList.remove("enter");
+  };
 
-    toastComponent.innerText = message;
-    toastComponent.setAttribute("class", classes);
-    document.body.append(toastComponent);
+  addToast = () => {
+    return new Promise((resolve, reject) => {
+      const classes = `toast ${this.status}`;
 
-    setTimeout(() => {
-      enterToast();
-      resolve();
-    }, 200);
-  });
-};
-
-export const removeToast = (delayOut) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      outToast();
+      this.toastComponent.innerText = this.message;
+      this.toastComponent.setAttribute("class", classes);
+      document.body.append(this.toastComponent);
 
       setTimeout(() => {
-        toastComponent.remove();
+        this.enterToast();
         resolve();
       }, 200);
-    }, delayOut);
-  });
-};
+    });
+  };
+
+  removeToast = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        this.outToast();
+
+        setTimeout(() => {
+          this.toastComponent.remove();
+          resolve();
+        }, 200);
+      }, 3000);
+    });
+  };
+}
