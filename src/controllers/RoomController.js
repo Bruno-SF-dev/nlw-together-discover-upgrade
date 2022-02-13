@@ -79,6 +79,12 @@ module.exports = {
     const db = await Database();
     const roomId = req.body.roomId;
 
+    if (!roomId) {
+      req.flash("error", "Insira o código sala.");
+      res.redirect("/");
+      return;
+    }
+
     const roomIdExist = await db.all(
       `SELECT * FROM rooms WHERE id = ${roomId}`,
     );
