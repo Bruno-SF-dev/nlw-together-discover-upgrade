@@ -59,6 +59,9 @@
               <button>Enviar</button>
             </footer>
           </form>
+          <% if (error.length > 0) { %>
+            <p><%= error %></p>
+          <% } %>
         </section>
         <section id="questions">
           <h2 class="sr-only">Perguntas da comunidade</h2>

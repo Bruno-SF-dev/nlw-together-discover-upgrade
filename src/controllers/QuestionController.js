@@ -30,6 +30,12 @@ module.exports = {
     const question = req.body.question;
     const roomId = req.params.roomId;
 
+    if (!question) {
+      req.flash("error", "Digite sua pergunta.");
+      res.redirect(`/room/${roomId}`);
+      return;
+    }
+
     await db.run(`
       INSERT INTO questions(
         room,
