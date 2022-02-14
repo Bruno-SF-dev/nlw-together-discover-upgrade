@@ -13,6 +13,8 @@ module.exports = {
       return;
     }
 
+    console.log(req.body);
+
     while (isRoom) {
       /*--- Gerar código da sala ---*/
       for (var i = 0; i < 6; i++) {
@@ -34,7 +36,7 @@ module.exports = {
           )
           VALUES (
             ${parseInt(roomId)},
-            ${pass}
+            "${pass}"
           )
         `);
       }
