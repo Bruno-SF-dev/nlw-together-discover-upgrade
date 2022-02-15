@@ -56,4 +56,4 @@ Algumas das melhorias adicionadas foram:
 ```
 
 6. Acesse no browser em
-   <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>.
+   <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>
