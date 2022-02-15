@@ -55,4 +55,4 @@ Algumas das melhorias adicionadas foram:
   npm run start
 ```
 
-6. Acesse no browser em http://localhost:3000/.
+6. Acesse no browser em <a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>.
